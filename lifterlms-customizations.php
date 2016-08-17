@@ -18,11 +18,42 @@
 * @author 		codeBOX
 */
 
-/**
- * Restrict direct access
- */
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) { exit; } // restrict direct access
+
+/***********************************************************************
+ *
+ * Add custom functions below this comment
+ *
+ ***********************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+/***********************************************************************
+ *
+ * Add custom functions above this comment
+ *
+ ***********************************************************************/
 
 /**
- * Add custom functions below this line
+ * Add this plugin's "templates" directory to the list of available override directories
+ *
+ * If you plan on including template overrides in this plugin, please uncomment the line immediately
+ * below this function. It is commented out by default to prevent unnecessary lookups
+ * for people who don't intend to include any template overrides in this plugin
+ *
+ * @param  array $dirs    Array of paths to directories to load LifterLMS templates from
+ * @return array
  */
+function llms_customizations_overrides_directory( $dirs ) {
+	array_unshift( $dirs, plugin_dir_path( __FILE__ ) . '/templates' );
+	return $dirs;
+}
+// add_filter( 'lifterlms_theme_override_directories', 'llms_customizations_overrides_directory', 10, 1 );
